@@ -1,5 +1,8 @@
 object luisa {
 	var personajeActivo = noHayPersonaje
+	method aparece(elemento){
+		personajeActivo.encontrar(elemento)
+	}
 }
 
 
@@ -17,15 +20,15 @@ object floki {
 
 object mario {
 	var valorRecolectado = 0
-	var alturaUltimoElemento = 0
+	var ultimoElemento = null
 	method encontrar(elemento) {
 	    valorRecolectado += elemento.valorQueOtorga()
 	    elemento.recibirTrabajo()
-	    alturaUltimoElemento = elemento.altura()
+	    ultimoElemento = elemento
 	}
 	
 	method estaFeliz(){
-		return (valorRecolectado >= 50) or (alturaUltimoElemento >= 10)
+		return (valorRecolectado >= 50) or (ultimoElemento.altura() >= 10)
 	}
 }
 
